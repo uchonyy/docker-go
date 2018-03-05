@@ -7,10 +7,11 @@ build:
 	docker run --rm -it -v $(shell pwd):/go/src/docker-go -w /go/src/docker-go golang:latest go get -u -v github.com/golang/dep/cmd/dep ; dep ensure -v ; env GOOS=linux go build -v
 
 image:
-	docker build -t docker-go:latest .
+	docker build --no-cache -t docker-go:latest .
 
 run:
 	docker run -p 8080:8080 --rm --name docker-go-inst docker-go
+
 clean:
 	rm -f docker-go
 	rm -f tests.xml
