@@ -10,3 +10,4 @@
 vendor
 docker-go
 tests.xml
+.idea
